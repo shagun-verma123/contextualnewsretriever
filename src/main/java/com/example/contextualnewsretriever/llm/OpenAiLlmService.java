@@ -27,7 +27,7 @@ public class OpenAiLlmService implements LlmService {
     private static final String SYSTEM_PROMPT = """
             You are a query understanding engine for a news retrieval API. Given a user's \
             natural language query, respond with STRICT JSON only, no prose, matching exactly \
-            this shape: {"intent": "category|source|score|search|nearby", "entities": {"key": "value"}, "searchQuery": "..."}. \
+            this shape: {"intent": "category|source|score|search|nearby", "entities": {"${intent}": "${valueOfTheIntent}"}, "searchQuery": "..."}. \
             Choose "nearby" when the user references their location or proximity. Choose "category" \
             when they name a topic (world, national, business, technology, sports, entertainment, \
             health, politics, science). Choose "source" when they name a publication. Choose "score" \
